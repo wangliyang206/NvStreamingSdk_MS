@@ -23,15 +23,13 @@ import android.widget.TextView;
 import com.meicam.sdk.NvsLiveWindow;
 import com.meicam.sdk.NvsStreamingContext;
 
-import com.cdv.customvideofx.MyCustomVideoFx;
-
 import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Meicam";
 
-    private NvsStreamingContext m_streamingContext;
+    private NvsStreamingContext mStreamingContext;
     private MyCustomVideoFx m_myCustomVideoFx;
 
     private SeekBar m_saturationGainSeekBar;
@@ -42,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //美摄SDK初始化
         //Init meicam sdk
-        m_streamingContext = NvsStreamingContext.init(this, null);
+        mStreamingContext = NvsStreamingContext.init(this, null);
 
         setContentView(R.layout.activity_main);
 
@@ -79,12 +77,12 @@ public class MainActivity extends AppCompatActivity {
         m_saturationGainText = (TextView)findViewById(R.id.saturationGainText);
 
         NvsLiveWindow liveWindow = (NvsLiveWindow)findViewById(R.id.liveWindow);
-        m_streamingContext.connectCapturePreviewWithLiveWindow(liveWindow);
+        mStreamingContext.connectCapturePreviewWithLiveWindow(liveWindow);
 
         // 添加自定义的采集视频特效
         // Add custom capture videoFx
         m_myCustomVideoFx = new MyCustomVideoFx();
-        m_streamingContext.appendCustomCaptureVideoFx(m_myCustomVideoFx);
+        mStreamingContext.appendCustomCaptureVideoFx(m_myCustomVideoFx);
         updateSaturationGainSeekBar(m_myCustomVideoFx.getSaturationGain());
         updateSaturationGainText(m_myCustomVideoFx.getSaturationGain());
     }
@@ -100,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause()
     {
-        if (m_streamingContext != null)
-            m_streamingContext.stop();
+        if (mStreamingContext != null)
+            mStreamingContext.stop();
 
         super.onPause();
     }
@@ -135,10 +133,10 @@ public class MainActivity extends AppCompatActivity {
      */
     private void startCapturePreview()
     {
-        if (m_streamingContext == null)
+        if (mStreamingContext == null)
             return;
 
-        if (m_streamingContext.getStreamingEngineState() == NvsStreamingContext.STREAMING_ENGINE_STATE_CAPTUREPREVIEW)
+        if (mStreamingContext.getStreamingEngineState() == NvsStreamingContext.STREAMING_ENGINE_STATE_CAPTUREPREVIEW)
             return;
 
         if (Build.VERSION.SDK_INT >= 23) {
@@ -153,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void doStartCapturePreview()
     {
-        m_streamingContext.startCapturePreview(0, NvsStreamingContext.VIDEO_CAPTURE_RESOLUTION_GRADE_HIGH, 0, null);
+        mStreamingContext.startCapturePreview(0, NvsStreamingContext.VIDEO_CAPTURE_RESOLUTION_GRADE_HIGH, 0, null);
     }
 
     private void updateSaturationGainSeekBar(float saturationGain)

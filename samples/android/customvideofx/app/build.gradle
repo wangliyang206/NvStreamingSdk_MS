@@ -11,6 +11,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+
     }
     buildTypes {
         release {
@@ -22,6 +28,14 @@ android {
         copy {
             from extraLibPath + 'lib/android_armv7'
             into 'src/main/jniLibs/armeabi-v7a'
+            include '*.so'
+        }
+    }
+
+    task libCopy2(type: Copy) {
+        copy {
+            from extraLibPath + 'lib/android_arm64'
+            into 'src/main/jniLibs/arm64-v8a'
             include '*.so'
         }
     }
