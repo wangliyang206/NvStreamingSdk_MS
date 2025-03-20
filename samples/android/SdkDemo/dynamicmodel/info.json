@@ -1,0 +1,26 @@
+{
+	"category": 1,
+	"cover": "EDE25C04-776D-4736-A498-1A32001E1279.png",
+	"isAbroad": 0,
+	"isAdjusted": 0,
+	"isPostPackage": 0,
+	"kind": 5,
+	"minSdkVersion": "2.18.0",
+	"name": "Colorful Painting",
+	"packageFileName": "EDE25C04-776D-4736-A498-1A32001E1279.1.arscene",
+	"packageSize": 1354148,
+	"pointType": 0,
+	"previewVideo": "https://qasset.meishesdk.com/material/cover/55358BE8-59C8-4C77-9C6D-E9BF635CAB1F.png",
+	"professionId": 0,
+	"ratioFlag": 1,
+	"suitablePlatform": 0,
+	"supportedAspectRatio": "9v16",
+	"translation": [{
+		"originalText": "Colorful Painting",
+		"targetLanguage": "zh_CN",
+		"targetText": "面部彩绘"
+	}],
+	"type": 14,
+	"uuid": "EDE25C04-776D-4736-A498-1A32001E1279",
+	"version": 1
+}
